@@ -1,3 +1,12 @@
-<h1>
-  {{title}}
-</h1>
+<div class="container">
+  <div class="starter-template">
+    <h1>Angular CLI + Bootstrap</h1>
+  </div>
+</div>
+<noteMaker (addEmitter)="onAddTodo($event)">
+</noteMaker>
+<ul class="noteList">
+    <li *ngFor="let note of notes" [class.complete]="note.complete">
+        <noteItem [test]="note"></noteItem>
+    </li>
+</ul>

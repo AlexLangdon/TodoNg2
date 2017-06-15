@@ -5,6 +5,7 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { NoteMaker } from '../note/noteMaker.component';
+import { DragulaModule }  from 'ng2-dragula/ng2-dragula';
 import DbService from './db.service';
 import NoteItem from '../note/noteItem.component';
 
@@ -17,7 +18,8 @@ import NoteItem from '../note/noteItem.component';
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    DragulaModule
   ],
   providers: [DbService],
   bootstrap: [AppComponent]

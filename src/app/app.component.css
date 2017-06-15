@@ -8,3 +8,12 @@
     padding: 0;
     display: inline-block;
 }
+
+.gu-mirror {
+    cursor: grabbing;
+    cursor: -moz-grabbing;
+    cursor: -webkit-grabbing;
+    opacity: 0.75;
+    position: fixed;
+    pointer-events: none;
+}

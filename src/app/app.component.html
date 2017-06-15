@@ -4,7 +4,7 @@
    </div>
   <noteMaker (addEmitter)="addNote($event)">
   </noteMaker>
-  <div class="list-group noteList">
+  <div class="list-group noteList" [dragula]='"first-bag"' [dragulaModel]='todos'>
     <noteItem *ngFor="let note of notes"
       [note]="note" (remove)="removeNote($event)" 
     (update)="updateNote($event)"></noteItem>

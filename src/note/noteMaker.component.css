@@ -1,3 +1,7 @@
-#doneButton{
+.noteMaker{
+    margin: 10px;
+}
+
+.doneButton{
     display: inline;
 }

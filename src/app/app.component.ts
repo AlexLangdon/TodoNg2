@@ -3,11 +3,13 @@ import { NoteMaker } from '../note/noteMaker.component';
 import DbService from './db.service';
 import Note from '../note/note.model';
 import NoteItem from '../note/noteItem.component';
+import {DragulaService} from 'ng2-dragula/ng2-dragula';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
+  viewProviders: [DragulaService]
 })
 export class AppComponent {
 

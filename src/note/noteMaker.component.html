@@ -1,4 +1,4 @@
 <div class="noteMaker">
-    <input type="text" [(ngModel)]="newNote.contents" (keyup.enter)="makeNote()" placeholder="Take a note ...">
+    <input type="text" [(ngModel)]="_newNote.contents" (keyup.enter)="makeNote()" placeholder="Take a note ...">
     <button class="btn btn-default" type="button" (click)="makeNote()">Done</button>
 </div>

@@ -25,7 +25,7 @@ export default class DbService {
   public getAllNotes(): Observable<Note[]> {
     return this.http.get(DB_URL + '/notes')
       .map(response => {
-        const notes = response.json();
+        const notes = response.json().sort((n1,n2) => n1.index - n2.index);
         return notes.map((note) => new Note(note));
       })
       .catch(this.handleError);
@@ -38,7 +38,7 @@ export default class DbService {
 
   public updateNote(note: Note): Observable<Note> {
     return this.http.put(DB_URL + '/notes/' + note.id, note)
-    .map((response) => {console.log(new Note(response.json)); return new Note(response.json)})
+    .map((response) => {return new Note(response.json)})
     .catch(this.handleError);
   }
 

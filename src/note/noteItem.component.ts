@@ -16,6 +16,19 @@ export default class NoteItem {
     @Output()
        update = new EventEmitter<Note>();
 
+    private _index: number;
+
+    @Input()
+        set index(i: number) {
+        this._index = i;
+        this.note.index = i;
+        this.update.emit(this.note);
+    }
+
+    get index(): number{
+        return this._index;
+    }
+
     removeNote(){
         this.remove.emit(this.note.id);
     }

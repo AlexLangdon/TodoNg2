@@ -1,5 +1,6 @@
 export default class Note {
     id: number;
+    index: number;
     contents: string;
     complete: boolean;
 

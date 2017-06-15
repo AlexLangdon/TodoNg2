@@ -13,25 +13,32 @@ import {DragulaService} from 'ng2-dragula/ng2-dragula';
 })
 export class AppComponent {
 
-  notes: Note[] = [];
+  private _notes: Note[] = [];
 
-  constructor(private _dbService: DbService){
+  constructor(private _dbService: DbService, private _dragulaService: DragulaService){
+    _dragulaService.setOptions('first-bag', {
+      revertOnSpill: true
+    });
+    _dragulaService.dropModel.subscribe((value) => {
+      this.onDropModel(value);
+    });
   }
 
   //Called after constructor
   public ngOnInit() {
     this._dbService.getAllNotes()
     .subscribe((dbNotes) => {
-      this.notes = dbNotes;
+      this._notes = dbNotes;
     });
   }
 
   addNote(note:Note) {
+    note.index = this._notes.length;
     this._dbService
       .addNote(note)
       .subscribe(
         (newNote) => {
-          this.notes = this.notes.concat(newNote);
+          this._notes = this._notes.concat(newNote);
         }
       );
   }
@@ -39,13 +46,15 @@ export class AppComponent {
   removeNote(id:number) {
     this._dbService
       .removeNote(id)
-      .subscribe((_) => this.notes = this.notes.filter((n => n.id !== id)))
+      .subscribe((_) => this._notes = this._notes.filter((n => n.id !== id)))
   }
 
   updateNote(note:Note) {
      this._dbService
       .updateNote(note)
-      .subscribe((updatedNote) => {console.log(updatedNote);note = updatedNote;});
+      .subscribe((updatedNote) => {note = updatedNote;});
 
   }
+
+  private onDropModel(args) {}
 }

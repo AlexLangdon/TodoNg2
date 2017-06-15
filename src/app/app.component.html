@@ -4,9 +4,9 @@
    </div>
   <noteMaker (addEmitter)="addNote($event)">
   </noteMaker>
-  <div class="list-group noteList" [dragula]='"first-bag"' [dragulaModel]='todos'>
-    <noteItem *ngFor="let note of notes"
-      [note]="note" (remove)="removeNote($event)" 
+  <div class="list-group noteList" [dragula]='"first-bag"' [dragulaModel]='_notes'>
+    <noteItem *ngFor="let note of _notes; let i = index; trackBy:note?.index"
+      [note]="note" [index]="i" (remove)="removeNote($event)" 
     (update)="updateNote($event)"></noteItem>
   </div>
 </div>

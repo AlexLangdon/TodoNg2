@@ -9,7 +9,8 @@ import Note from './note.model';
 })
 
 export class NoteMaker {
-    newNote: Note = new Note();
+
+    private _newNote: Note = new Note();
 
     @Output()
     addEmitter: EventEmitter<Note> = new EventEmitter();
@@ -18,7 +19,7 @@ export class NoteMaker {
     }
 
     makeNote(){
-        this.addEmitter.emit(this.newNote)
-        this.newNote = new Note();
+        this.addEmitter.emit(this._newNote)
+        this._newNote = new Note();
     }
 }

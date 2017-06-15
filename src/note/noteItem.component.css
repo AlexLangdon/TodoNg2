@@ -1,0 +1,28 @@
+.noteItem{
+    width: 300px;
+    display: flex;
+}
+
+.checkWrap{
+    margin: 5px;
+    align-items: stretch;
+}
+
+.noteCheckbox{
+    vertical-align: middle;
+}
+
+.noteContents{
+    margin: 5px;
+    width: 100%;
+    word-break: break-all;
+}
+
+.completeWrap
+{
+    
+}
+
+.list-group-item-success{
+    text-decoration: line-through;
+}

@@ -1,13 +1,12 @@
-<div class="container">
-  <div class="starter-template">
-    <h1>Angular CLI + Bootstrap</h1>
+<div id="container">
+   <div class="page-header">
+    <h1>Boards</h1>
+   </div>
+  <noteMaker (addEmitter)="addNote($event)">
+  </noteMaker>
+  <div class="list-group noteList">
+    <noteItem *ngFor="let note of notes"
+      [note]="note" (remove)="removeNote($event)" 
+    (update)="updateNote($event)"></noteItem>
   </div>
 </div>
-<noteMaker (addEmitter)="addNote($event)">
-</noteMaker>
-<ul class="noteList">
-    <li *ngFor="let note of notes" [class.complete]="note.complete">
-        <noteItem [note]="note" (remove)="removeNote($event)" 
-        (update)="updateNote($event)"></noteItem>
-    </li>
-</ul>

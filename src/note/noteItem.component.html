@@ -1,5 +1,7 @@
-<div>
-    <input type="checkbox" [checked] = "note.complete" (click)="toggleChecked()">
-    {{note.contents}}
-    <button title="X" (click)="removeNote()">X</button>
+<div class="noteItem list-group-item" [class.list-group-item-success]="note.complete">
+    <div class="checkWrap"><input type="checkbox" class="noteCheckbox" [checked] = "note.complete" (click)="toggleChecked()"></div>
+    <label class="noteContents">{{note.contents}}</label>
+    <div class="completeWrap"><button title="remove" (click)="removeNote()">
+        <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+    </button></div>
 </div>

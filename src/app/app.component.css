@@ -1,9 +1,10 @@
-li{
-    width: 100px;
-    height: 30px;
-    background: red;
+#container{
+    text-align: center
 }
 
-.complete{
-    background: green;
+.noteList{
+    list-style: none;
+    text-align: center;
+    padding: 0;
+    display: inline-block;
 }

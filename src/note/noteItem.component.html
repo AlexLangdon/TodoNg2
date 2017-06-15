@@ -1,5 +1,5 @@
 <div>
-    <b>
-        TEST
-    </b>
+    <input type="checkbox" [checked] = "note.complete" (click)="toggleChecked()">
+    {{note.contents}}
+    <button title="X" (click)="removeNote()">X</button>
 </div>

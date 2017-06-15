@@ -1,4 +1,4 @@
-import { Component, Input } from "@angular/core";
+import { Component, Input, Output, EventEmitter} from "@angular/core";
 import Note from "./note.model";
 
 @Component({
@@ -8,5 +8,20 @@ import Note from "./note.model";
 })
 export default class NoteItem {
     @Input() 
-        test: Note;
+        note: Note;
+
+    @Output()
+       remove = new EventEmitter<number>();
+
+    @Output()
+       update = new EventEmitter<Note>();
+
+    removeNote(){
+        this.remove.emit(this.note.id);
+    }
+
+    toggleChecked(){
+        this.note.complete = !this.note.complete;
+        this.update.emit(this.note);
+    }
 }

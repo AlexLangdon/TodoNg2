@@ -24,8 +24,7 @@ export class AppComponent {
     });
   }
 
-   onAddTodo(note) {
-    console.log("YES");
+  addNote(note:Note) {
     this._dbService
       .addNote(note)
       .subscribe(
@@ -33,5 +32,18 @@ export class AppComponent {
           this.notes = this.notes.concat(newNote);
         }
       );
+  }
+
+  removeNote(id:number) {
+    this._dbService
+      .removeNote(id)
+      .subscribe((_) => this.notes = this.notes.filter((n => n.id !== id)))
+  }
+
+  updateNote(note:Note) {
+     this._dbService
+      .updateNote(note)
+      .subscribe((updatedNote) => {console.log(updatedNote);note = updatedNote;});
+
   }
 }

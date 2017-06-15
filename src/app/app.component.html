@@ -3,10 +3,11 @@
     <h1>Angular CLI + Bootstrap</h1>
   </div>
 </div>
-<noteMaker (addEmitter)="onAddTodo($event)">
+<noteMaker (addEmitter)="addNote($event)">
 </noteMaker>
 <ul class="noteList">
     <li *ngFor="let note of notes" [class.complete]="note.complete">
-        <noteItem [test]="note"></noteItem>
+        <noteItem [note]="note" (remove)="removeNote($event)" 
+        (update)="updateNote($event)"></noteItem>
     </li>
 </ul>

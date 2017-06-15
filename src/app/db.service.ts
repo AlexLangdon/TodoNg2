@@ -16,6 +16,7 @@ export default class DbService {
   constructor(private http:Http) { }
 
   public addNote(note: Note) {
+    console.log(note);
     return this.http.post(DB_URL + '/notes', note)
     .map(response => {return new Note(response.json())})
     .catch(this.handleError);
@@ -28,6 +29,17 @@ export default class DbService {
         return notes.map((note) => new Note(note));
       })
       .catch(this.handleError);
+  }
+
+  public removeNote(id: number): Observable<null> {
+    return this.http.delete(DB_URL + '/notes/'+ id)
+    .catch(this.handleError);
+  }
+
+  public updateNote(note: Note): Observable<Note> {
+    return this.http.put(DB_URL + '/notes/' + note.id, note)
+    .map((response) => {console.log(new Note(response.json)); return new Note(response.json)})
+    .catch(this.handleError);
   }
 
   private handleError (error: Response | any) {

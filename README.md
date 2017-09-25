@@ -1,4 +1,4 @@
-# KeepNg2
+# TodoNg2
 
 Basic note app made with Angular 2, Bootstrap and a simple JSON REST server.
 

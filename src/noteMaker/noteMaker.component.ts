@@ -1,6 +1,5 @@
 import { Component, Output, EventEmitter } from '@angular/core';
-import DbService from '../app/db.service';
-import Note from './note.model';
+import { NoteModel } from '../note/note.model';
 
 @Component({
   selector: 'noteMaker',
@@ -10,16 +9,13 @@ import Note from './note.model';
 
 export class NoteMaker {
 
-    private _newNote: Note = new Note();
+    private _newNote: NoteModel = new NoteModel();
 
     @Output()
-    addEmitter: EventEmitter<Note> = new EventEmitter();
+    addEmitter: EventEmitter<NoteModel> = new EventEmitter();
 
-    constructor(){
-    }
-
-    makeNote(){
+    makeNote() {
         this.addEmitter.emit(this._newNote)
-        this._newNote = new Note();
+        this._newNote = new NoteModel();
     }
 }

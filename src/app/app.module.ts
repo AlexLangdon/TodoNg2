@@ -4,16 +4,18 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
-import { NoteMaker } from '../note/noteMaker.component';
-import { DragulaModule }  from 'ng2-dragula/ng2-dragula';
-import DbService from './db.service';
-import NoteItem from '../note/noteItem.component';
+import { Dashboard } from '../dashboard/dashboard.component';
+import { NoteMaker } from '../noteMaker/noteMaker.component';
+import { DragulaModule } from 'ng2-dragula/ng2-dragula';
+import { DbService } from '../backend/db.service';
+import { Note } from '../note/note.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    Dashboard,
     NoteMaker,
-    NoteItem
+    Note
   ],
   imports: [
     BrowserModule,
@@ -21,7 +23,7 @@ import NoteItem from '../note/noteItem.component';
     HttpModule,
     DragulaModule
   ],
-  providers: [DbService],
+  providers: [{ provide: DbService, useClass: DbService }],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

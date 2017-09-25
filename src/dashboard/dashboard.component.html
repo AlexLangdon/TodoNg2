@@ -1,0 +1,11 @@
+<div id="container">
+  <div class="page-header">
+    <h1>Boards</h1>
+  </div>
+  <noteMaker (addEmitter)="addNote($event)"></noteMaker>
+  <div class="list-group noteList" [dragula]='"first-bag"' [dragulaModel]='_notes'>
+    <note *ngFor="let note of _notes; let i = index; trackBy:note?.index"
+      [note]="note" [index]="i" (remove)="removeNote($event)" 
+    (update)="updateNote($event)"></note>
+  </div>
+</div>

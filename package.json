@@ -5,12 +5,13 @@
   "angular-cli": {},
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --port 4000",
+    "start": "ng serve",
     "lint": "tslint \"src/**/*.ts\" --project src/tsconfig.json --type-check && tslint \"e2e/**/*.ts\" --project e2e/tsconfig.json --type-check",
     "test": "ng test",
     "pree2e": "webdriver-manager update --standalone false --gecko false",
     "e2e": "protractor",
-    "dbStart": "json-server --watch db.json"
+    "dbStart": "json-server --watch db.json",
+    "dev": "nodemon app.js"
   },
   "private": true,
   "dependencies": {
@@ -22,10 +23,18 @@
     "@angular/platform-browser": "^2.3.1",
     "@angular/platform-browser-dynamic": "^2.3.1",
     "@angular/router": "^3.3.1",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.17.2",
     "bootstrap": "^3.3.7",
     "core-js": "^2.4.1",
+    "cors": "^2.8.3",
+    "express": "^4.15.3",
     "json-server": "^0.10.1",
+    "jsonwebtoken": "^7.4.1",
+    "mongoose": "^4.10.6",
     "ng2-dragula": "^1.5.0",
+    "passport": "^0.3.2",
+    "passport-jwt": "^2.2.1",
     "rxjs": "^5.0.1",
     "ts-helpers": "^1.1.1",
     "zone.js": "^0.7.2"

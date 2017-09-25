@@ -1,5 +1,6 @@
 <div class="noteItem list-group-item" [class.list-group-item-success]="note.complete">
-    <div class="checkWrap"><input type="checkbox" class="noteCheckbox" [checked] = "note.complete" (click)="toggleChecked()"></div>
+    <div class="checkWrap"><input type="checkbox" class="noteCheckbox" 
+        [checked] = "note.complete" (click)="toggleCompleted()"></div>
     <label class="noteContents">{{note.contents}}</label>
     <div class="removeWrap">
         <button title="remove" class="btn btn-default btn-sm removeButton" (click)="removeNote()">

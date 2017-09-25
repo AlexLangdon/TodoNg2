@@ -1,26 +1,21 @@
 {
   "notes": [
     {
-      "contents": "0",
-      "index": 3,
-      "id": 1
+      "contents": "note1",
+      "index": 0,
+      "id": 1,
+      "complete": true
     },
     {
-      "contents": "1",
+      "contents": "note2",
       "index": 1,
       "id": 2,
       "complete": false
     },
     {
-      "contents": "2",
+      "contents": "note3",
       "index": 2,
       "id": 3,
-      "complete": true
-    },
-    {
-      "contents": "sss",
-      "index": 0,
-      "id": 4,
       "complete": false
     }
   ]
